@@ -1,0 +1,147 @@
+if _G.NametagsRan then
+    return
+end
+_G.NametagsRan = true
+local plrs = game:GetService("Players")
+
+local UI = game:GetObjects("rbxassetid://11544567089")[1]
+math.randomseed(tick())
+UI.Name = syn and syn.crypt and syn.crypt.random and syn.crypt.random(32) or math.random(10000,99999)
+
+if syn and syn.protect_gui then
+    syn.protect_gui(UI)
+end
+
+local color = Color3.fromHSV(tick() % 5 / 5, 1, 1)
+
+local rainbow_text = coroutine.wrap(function(tag)
+    while tag do
+        task.wait()
+        tag.TextColor3 = color
+    end
+end)
+
+local cool = { -- Userid, Title, Color (1 = rainbow, 0 = no rainbow, 2 = pink, 3 = blue, 4 = transgender flag)
+    {235757622, "Fendo (Owner)", 5},
+    {3033176182, "Fendo (Owner)", 5},
+    {12639931, "Fendo (Owner)", 5},
+    {1698664417, "samy (Owner", 3},
+    {995994548, "bude (first buyer)", 6},
+    {35746212, "samy (Owner)", 3}
+}
+
+local tws = game:GetService("TweenService")
+
+for i,v in pairs(plrs:GetChildren()) do
+    v.CharacterAdded:Connect(function()
+        repeat task.wait() until v.Character and v.Character:FindFirstChild("Head")
+        for i,a in pairs(cool) do
+            if v.UserId == a[1] and v.Character and v.Character:FindFirstChild("Head") then
+                local tag = UI:Clone()
+                tag.Nameplate.Text = a[2]
+                if a[3] == 1 then
+                    rainbow_text(tag.Nameplate)
+                end
+                if a[3] == 4 then
+                    tag.Nameplate.UIGradient.Enabled = true
+                    tag.Nameplate.UIGradient.Offset = Vector2.new(-.5,-.5)
+                    local twi = TweenInfo.new(4,Enum.EasingStyle.Quad,Enum.EasingDirection.InOut,-1,true,0)
+                    local tween = tws:Create(tag.Nameplate.UIGradient,twi,{["Offset"]=Vector2.new(.5,.5)})
+                    tween:Play()
+                end
+                if a[3] == 0 then
+                    tag.Nameplate.TextColor3 = Color3.fromRGB(255, 255, 255)
+                end
+                if a[3] == 2 then
+                    tag.Nameplate.TextColor3 = Color3.fromRGB(250, 157, 179)
+                end
+                if a[3] == 3 then
+                    tag.Nameplate.TextColor3 = Color3.fromRGB(157, 200, 251)
+                end
+                if a[3] == 5 then
+                    tag.Nameplate.TextColor3 = Color3.fromRGB(184, 0, 0) --darkish red
+                end
+                 if a[3] == 6 then
+                    tag.Nameplate.TextColor3 = Color3.fromRGB(59, 106, 243)
+                end
+                tag.Parent = v.Character.Head
+            end
+        end
+    end)
+    for i,a in pairs(cool) do
+        if v.UserId == a[1] and v.Character and v.Character:FindFirstChild("Head") then
+            local tag = UI:Clone()
+            tag.Nameplate.Text = a[2]
+            if a[3] == 1 then
+                rainbow_text(tag.Nameplate)
+            end
+            if a[3] == 4 then
+                tag.Nameplate.UIGradient.Enabled = true
+                tag.Nameplate.UIGradient.Offset = Vector2.new(-.5,-.5)
+                local twi = TweenInfo.new(4,Enum.EasingStyle.Quad,Enum.EasingDirection.InOut,-1,true,0)
+                local tween = tws:Create(tag.Nameplate.UIGradient,twi,{["Offset"]=Vector2.new(.5,.5)})
+                tween:Play()
+            end
+            if a[3] == 0 then
+                tag.Nameplate.TextColor3 = Color3.fromRGB(255, 255, 255) --black
+            end
+            if a[3] == 2 then
+                tag.Nameplate.TextColor3 = Color3.fromRGB(250, 157, 179)
+            end
+            if a[3] == 3 then
+                tag.Nameplate.TextColor3 = Color3.fromRGB(157, 200, 251)
+            end
+            if a[3] == 5 then
+               tag.Nameplate.TextColor3 = Color3.fromRGB(184, 0, 0) --darkish red
+            end
+             if a[3] == 6 then
+                    tag.Nameplate.TextColor3 = Color3.fromRGB(59, 106, 243)
+                end
+            tag.Parent = v.Character.Head
+        end
+    end
+end
+
+plrs.PlayerAdded:Connect(function(v)
+    v.CharacterAdded:Connect(function()
+        repeat task.wait() until v.Character and v.Character:FindFirstChild("Head")
+        for i,a in pairs(cool) do
+            if v.UserId == a[1] and v.Character and v.Character:FindFirstChild("Head") then
+                local tag = UI:Clone()
+                tag.Nameplate.Text = a[2]
+                if a[3] == 1 then
+                    rainbow_text(tag.Nameplate)
+                end
+                if a[3] == 4 then
+                    tag.Nameplate.UIGradient.Enabled = true
+                    tag.Nameplate.UIGradient.Offset = Vector2.new(-.5,-.5)
+                    local twi = TweenInfo.new(4,Enum.EasingStyle.Quad,Enum.EasingDirection.InOut,-1,true,0)
+                    local tween = tws:Create(tag.Nameplate.UIGradient,twi,{["Offset"]=Vector2.new(.5,.5)})
+                    tween:Play()
+                end
+                if a[3] == 0 then
+                    tag.Nameplate.TextColor3 = Color3.fromRGB(255, 255, 255)
+                end
+                if a[3] == 2 then
+                    tag.Nameplate.TextColor3 = Color3.fromRGB(241, 166, 245)
+                end
+                if a[3] == 3 then
+                    tag.Nameplate.TextColor3 = Color3.fromRGB(157, 200, 251)
+                end
+            if a[3] == 5 then
+               tag.Nameplate.TextColor3 = Color3.fromRGB(184, 0, 0) --darkish red
+            end
+             if a[3] == 6 then
+                    tag.Nameplate.TextColor3 = Color3.fromRGB(59, 106, 243)
+                end
+                tag.Parent = v.Character.Head
+            end
+        end
+    end)
+end)
+
+coroutine.wrap(function()
+    while task.wait() do
+        color = Color3.fromHSV(tick() % 5 / 5, 1, 1)
+    end
+end)()
